@@ -158,19 +158,19 @@
         <div class="row">
             <div class="col">
                 <label for="Valor">Valor</label>
-                <asp:TextBox ID="ValorTextBox" CssClass="form-control" runat="server" />
+                <asp:TextBox ID="ValorTextBox" CssClass="form-control" ReadOnly="true" runat="server" />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="Logro">Logro</label>
-                <asp:TextBox ID="LogradoTextBox" CssClass="form-control" runat="server" />
+                <asp:TextBox ID="LogradoTextBox" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="LogradoTextBox_TextChanged"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col">
-                <asp:Button ID="Agregar" runat="server" Text="Agregar" OnClick="Agregar_Click" />
+            <div class="col justify-content-end">
+                <asp:Button ID="Agregar" runat="server" CssClass=" btn btn-primary" Text="Agregar" OnClick="Agregar_Click" />
             </div>
         </div>
 

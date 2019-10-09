@@ -50,8 +50,11 @@ namespace BLL
             try
             {
                 evaluacion = _contexto.Evaluaciones.Find(id);
+                if (evaluacion != null)
+                {
+                    evaluacion.Detalles.Count();
+                }
 
-                evaluacion.Detalles.Count();
             }
             catch (Exception)
             {
@@ -75,6 +78,7 @@ namespace BLL
                 {
                     if (!evaluacion.Detalles.Exists(d => d.DetalleEvaluacionId == item.DetalleEvaluacionId))
                     {
+                        contexto.Clientes.Find(item.EsudianteId).PuntosPerdidos += item.Perdido;
                         contexto.Entry(item).State = EntityState.Deleted;
                         pas = true;
                     }
@@ -92,6 +96,8 @@ namespace BLL
                         estado = EntityState.Added;
                     }
                     con.Entry(item).State = estado;
+                    con.Clientes.Find(item.EsudianteId).PuntosPerdidos -= item.Perdido;
+
                 }
 
 
@@ -105,6 +111,22 @@ namespace BLL
             }
             return paso;
 
+        }
+
+        public override bool Eliminar(int id)
+        {
+            bool paso = false;
+            RepositorioEvaluacion repositorio = new RepositorioEvaluacion(new Contexto());
+            Evaluaciones evaluaciones = _contexto.Evaluaciones.Find(id);    
+                foreach (var item in evaluaciones.Detalles)
+                {
+                    _contexto.Clientes.Find(item.EsudianteId).PuntosPerdidos -= item.Perdido;
+                }
+                _contexto.Evaluaciones.Remove(evaluaciones);
+  
+            paso = _contexto.SaveChanges() > 0;
+
+            return paso;
         }
 
 

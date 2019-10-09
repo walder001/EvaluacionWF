@@ -107,14 +107,16 @@ namespace EvaluacionWF.Registro
         }
         public void LlenarTotal()
         {
-            RepositorioBase<Estudiantes> repositorio = new RepositorioBase<Estudiantes>(new Contexto());
-            int estudiante = Utils.ToInt(EstudianteDropDownList.SelectedItem.Value);
-            List<Estudiantes> lista = repositorio.GetList(e=> e.EstudianteId == estudiante);
+            RepositorioBase<DetalleEvaluaciones> repositorio = new RepositorioBase<DetalleEvaluaciones>(new Contexto());
+            decimal puntos = 0;
+            int evaluacion = Utils.ToInt(EvaluacionTextBox.Text);
+            List<DetalleEvaluaciones> lista = repositorio.GetList(e=> e.EvaluacionId == evaluacion);
             foreach (var item in lista)
             {
-                TotalTextBox.Text = item.PuntosPerdidos.ToString();
-
+                puntos += item.Perdido;
             }
+            TotalTextBox.Text = puntos.ToString();
+
         }
         private bool HayErrores()
         {
@@ -444,6 +446,18 @@ namespace EvaluacionWF.Registro
                 Utils.ShowToastr(this, "Erro", "Error", "success");
             }
 
+        }
+
+        protected void LogradoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            RepositorioBase<Categorias> repositorio = new RepositorioBase<Categorias>(new Contexto());
+            int id = Utils.ToInt(CategoriaDropDownList.SelectedValue);
+            List<Categorias> categorias = repositorio.GetList(a => a.CategoriaId == id);
+
+            foreach (var item in categorias)
+            {
+                ValorTextBox.Text = item.Valor.ToString();
+            }
         }
     }
 }

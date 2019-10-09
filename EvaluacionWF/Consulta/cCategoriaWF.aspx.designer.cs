@@ -13,33 +13,6 @@ namespace EvaluacionWF.Consulta {
     public partial class cCategoriaWF {
         
         /// <summary>
-        /// FechaIncio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaIncio;
-        
-        /// <summary>
-        /// checkbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox checkbox;
-        
-        /// <summary>
-        /// FechaFin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaFin;
-        
-        /// <summary>
         /// DropDrom control.
         /// </summary>
         /// <remarks>
@@ -65,5 +38,14 @@ namespace EvaluacionWF.Consulta {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView DatosGridView;
+        
+        /// <summary>
+        /// MyReportViewer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer MyReportViewer;
     }
 }
