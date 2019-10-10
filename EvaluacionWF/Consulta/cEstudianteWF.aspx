@@ -9,7 +9,7 @@
             <li>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
 
-                <h5 class="text-light">Consulta Categoria</h5>
+                <h5 class="text-light">Consulta Estudiante</h5>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
 
             </li>

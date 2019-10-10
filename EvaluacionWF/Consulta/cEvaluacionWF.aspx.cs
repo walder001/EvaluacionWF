@@ -28,7 +28,7 @@ namespace EvaluacionWF.Consulta
 
         public void LlenaReport()
         {
-            RepositorioBase<Estudiantes> repositorio = new RepositorioBase<Estudiantes>(new Contexto());
+            RepositorioBase<Evaluaciones> repositorio = new RepositorioBase<Evaluaciones>(new Contexto());
             MyReportViewer.ProcessingMode = ProcessingMode.Local;
             MyReportViewer.Reset();
             MyReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reporte\EvaluacionReport.rdlc");
